@@ -1,0 +1,161 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+:root {
+    --purple-bg: #34345a;
+    --lightblue: #78f1e1;
+    --neongreen: #76e989;
+    --shadow-purple: #9292c7;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: var(--purple-bg);
+    color: white;
+}
+
+/* Selve "kortet's" dimensioner, baggrundsfarve & skygge*/
+.card {
+    background-color: var(--purple-bg);
+    border-radius: 4%;
+    height: 420px;
+    width: 330px;
+    padding: 0.5em 1.2em;
+    -webkit-box-shadow: 5px 5px 15px 5px #1b1b1b; 
+    box-shadow: 5px 5px 15px 5px #1b1b1b;
+}
+
+.card h1 {
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.card .list-container ul {
+    display: flex;
+    gap: 15%;
+    padding: 0 1.2em;
+}
+
+.card .list-container ul li {
+    font-size: 0.85rem;
+}
+
+/* Pseudo-element til at ændrer farven på de to "bullet" */
+.card .list-container li:first-child::marker {
+    color: var(--lightblue);
+}
+
+.card .list-container li:last-child::marker {
+    color: var(--shadow-purple);
+}
+
+.card .flex-container {
+    display: flex;
+    margin-top: 12.5%;
+}
+
+.card .flex-container .units {
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    gap: 2.5em;
+}
+
+.card .flex-container .units h3 {
+    font-size: 0.85rem;
+    font-weight: 400;
+    color: var(--shadow-purple);
+    margin: 0;
+}
+
+/* SVG baggrund bruges som grid-lines i tabellen - No-repeat og cover så den tilpasser sin div -
+Flex og Space-between for at placere søjlerne som ønsket */
+.card .flex-container .graph {
+    width: 80%;
+    border: 0.5px solid var(--shadow-purple);
+    background-image: url(svg/ooorganize.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Baggrundssøjle - Roteres 180 grader for at få den ønskede effekt med den farvede søjle som placeres ovenpå - På den måde går søjlen fra bunden af grafen og op ad */
+.card .flex-container .graph .pillar {
+    height: 65px;
+    width: 10px;
+    background-color: var(--shadow-purple);
+    margin-right: 1em;
+    margin-left: 1em;
+    margin-top: auto;
+    border-radius: 20px;
+    transform: rotate(180deg);
+}
+
+.card .flex-container .graph .pillar:nth-child(1) {
+    height: 215px;
+}
+
+.card .flex-container .graph .pillar:nth-child(2) {
+    height: 140px;
+}
+
+.card .flex-container .graph .pillar:nth-child(3) {
+    height: 85px;
+}
+
+.card .flex-container .graph .pillar:nth-child(4) {
+    height: 192px;
+}
+
+/* "Søjlefyld" der viser "Incoming" i grafen - Bruger Pseudo-element "before" for at placere en ny højde samt farve på elementet */ 
+.card .flex-container .graph .pillar:nth-child(1)::before {
+    content: attr(data-pillar);
+    position: absolute;
+    background: -webkit-linear-gradient(#76e989, #78f1e1);
+    height: 140px;
+    width: 10px;
+    border-radius: 20px;
+}
+
+.card .flex-container .graph .pillar:nth-child(2)::before {
+    content: attr(data-pillar);
+    position: absolute;
+    background: -webkit-linear-gradient(#76e989, #78f1e1);
+    height: 90px;
+    width: 10px;
+    border-radius: 20px;
+}
+
+.card .flex-container .graph .pillar:nth-child(3)::before {
+    content: attr(data-pillar);
+    position: absolute;
+    background: -webkit-linear-gradient(#76e989, #78f1e1);
+    height: 58px;
+    width: 10px;
+    border-radius: 20px;
+}
+
+.card .flex-container .graph .pillar:nth-child(4)::before {
+    content: attr(data-pillar);
+    position: absolute;
+    background: -webkit-linear-gradient(#76e989, #78f1e1);
+    height: 125px;
+    width: 10px;
+    border-radius: 20px;
+}
+
+.card .flex-container .graph .pillar:nth-child(5)::before {
+    content: attr(data-pillar);
+    position: absolute;
+    background: -webkit-linear-gradient(#76e989, #78f1e1);
+    height: 44px;
+    width: 10px;
+    border-radius: 20px;
+}
